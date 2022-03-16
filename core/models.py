@@ -6,18 +6,21 @@ class Setting(models.Model):
 
     website_title = models.CharField(max_length=50, default="Cansat - Teknofest", blank=True)
 
+    def __str__(self):
+        return self.website_title
+
 
 class SensorReading(models.Model):
     setting = models.ForeignKey('Setting', on_delete=models.PROTECT, related_name='sensor_readings')
 
-    working_duration = models.PositiveIntegerField(default=0.0, blank=True)
-    number_of_telemetry_packets = models.PositiveIntegerField(default=0.0, blank=True)
+    working_duration = models.PositiveIntegerField(default=0, blank=True)
+    number_of_telemetry_packets = models.PositiveIntegerField(default=0, blank=True)
     battery_voltage = models.FloatField(default=0.0, blank=True)
     altitude = models.FloatField(default=0.0, blank=True)
     velocity = models.FloatField(default=0.0, blank=True)
 
     no2_level_in_ppm = models.FloatField(default=0.0, blank=True)
-    no_level_in_ppm = models.FloatField(default=0.0, blank=True)
+    co_level_in_ppm = models.FloatField(default=0.0, blank=True)
     h2_level_in_ppm = models.FloatField(default=0.0, blank=True)
 
     latitude = models.FloatField(default=0.0, blank=True)
