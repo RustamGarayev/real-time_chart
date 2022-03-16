@@ -9,3 +9,4 @@ requests==2.27.1
 psycopg2==2.9.3
 django-widget-tweaks==1.4.12
 python-dotenv==0.19.2
+django-4-jet==1.0.8

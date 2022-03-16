@@ -4,8 +4,9 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('admin/', admin.site.urls),
-    path('cansat/', include('core.urls')),
+    path('', include('core.urls')),
 ]
 
 urlpatterns += static(
