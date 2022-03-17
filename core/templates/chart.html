@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load l10n %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="{% static 'js/fusioncharts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/themes/fusioncharts.theme.fint.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <!-- FusionCharts will render here-->
+    <div id="chart-1"></div>
+
+    <div id="chart-2"></div>
+
+    <div id="chart-3"></div>
+{% endblock %}
+
+{% block js %}
+    <!-- dumping JavaScript code here -->
+    {{ output1|safe }}
+    {{ output2|safe }}
+    {{ output3|safe }}
+{% endblock %}
