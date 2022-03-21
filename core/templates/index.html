@@ -4,67 +4,35 @@
 {% load l10n %}
 
 {% block extra_js %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% endblock %}
 
 {% block content %}
-     <div class="container">
-        <canvas id="mychart"></canvas>
+    <div style="display: flex">
+        <div id="team-id"></div>
+        <div id="working_duration"></div>
+        <div id="telemetry-packs"></div>
     </div>
+
+    <table class="charts-css column multiple data-spacing-15 datasets-spacing-4">
+        <td style="--color: transparent;">
+            <div class="container">
+                <canvas id="battery-voltage-graph"></canvas>
+            </div>
+        </td>
+        <td style="--color: transparent;">
+            <div class="container">
+                <canvas id="altitude-graph"></canvas>
+            </div>
+        </td>
+        <td style="--color: transparent;">
+            <div class="container">
+                <canvas id="velocity-graph"></canvas>
+            </div>
+        </td>
+    </table>
 {% endblock %}
 
 {% block js %}
-    <script type="text/javascript">
-        let myChart;
-        let lbl = '{{ labels|safe }}';
-        let dataset = '{{ dataset }}';
-        let chart = document.getElementById('mychart').getContext('2d');
-        console.log(JSON.parse(lbl));
-        console.log(dataset);
-        myChart = new Chart(chart, {
-            type: 'bar',
-            data: {
-                labels: JSON.parse(lbl),
-                datasets: [{
-                    label: 'Quantity: ',
-                    data: JSON.parse(dataset),
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
-            }
-        });
-	</script>
+    <script src="{% static 'client/js/custom_graph.js' %}"></script>
 {% endblock %}

@@ -9,6 +9,6 @@ class JsonEncoder(json.JSONEncoder):
             return str(o)
 
         if isinstance(o, (datetime, date)):
-            return o.strftime("%Y-%m-%d")
+            return o.strftime('%Y-%m-%d')
 
         return super(JsonEncoder, self).default(o)
