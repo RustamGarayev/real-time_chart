@@ -11,12 +11,6 @@ let defaultGraphLabels = [...Array(61).keys()];
 
 // Class - Graph Class for creating graphs with Chart.js library and data from the database
 class CustomGraph {
-    graph_type = 'line';
-    graph_title = '';
-    graph_data = [];
-    graph_labels = defaultGraphLabels;
-    graph_options = defaultGraphOptions;
-
     constructor(graph_id, graph_type, graph_title, graph_data, graph_labels, graph_options) {
         this.graph_id = graph_id;
         this.graph_type = graph_type;
@@ -45,6 +39,7 @@ class CustomGraph {
     }
 }
 
+// Prevent same referenced graph data from being drawn multiple times
 batteryVoltageData = [];
 altitudeData = [];
 velocityData = [];
@@ -52,9 +47,37 @@ no2Data = [];
 coData = [];
 h2Data = [];
 
-let batteryVoltage = new CustomGraph('battery-voltage-graph', 'line', 'Battery Voltage', batteryVoltageData, defaultGraphLabels, defaultGraphOptions);
-let altitude = new CustomGraph('altitude-graph', 'line', 'Altitude', altitudeData, defaultGraphLabels, defaultGraphOptions);
-let velocity = new CustomGraph('velocity-graph', 'line', 'Velocity', velocityData, defaultGraphLabels, defaultGraphOptions);
-let no2 = new CustomGraph('no2-graph', 'line', 'NO2', no2Data, defaultGraphLabels, defaultGraphOptions);
-let co = new CustomGraph('co-graph', 'line', 'CO', coData, defaultGraphLabels, defaultGraphOptions);
-let h2 = new CustomGraph('h2-graph', 'line', 'H2', h2Data, defaultGraphLabels, defaultGraphOptions);
+// Define each graph
+let batteryVoltageGraph = new CustomGraph('battery-voltage-graph', 'line', 'Battery Voltage', batteryVoltageData, defaultGraphLabels, defaultGraphOptions);
+let altitudeGraph = new CustomGraph('altitude-graph', 'line', 'Altitude', altitudeData, defaultGraphLabels, defaultGraphOptions);
+let velocityGraph = new CustomGraph('velocity-graph', 'line', 'Velocity', velocityData, defaultGraphLabels, defaultGraphOptions);
+let no2Graph = new CustomGraph('no2-graph', 'line', 'NO2', no2Data, defaultGraphLabels, defaultGraphOptions);
+let coGraph = new CustomGraph('co-graph', 'line', 'CO', coData, defaultGraphLabels, defaultGraphOptions);
+let h2Graph = new CustomGraph('h2-graph', 'line', 'H2', h2Data, defaultGraphLabels, defaultGraphOptions);
+
+let graphsList = [
+    {
+        'graph': batteryVoltageGraph.draw(),
+        'field_name': 'battery_voltage',
+    },
+    {
+        'graph': altitudeGraph.draw(),
+        'field_name': 'altitude',
+    },
+    {
+        'graph': velocityGraph.draw(),
+        'field_name': 'velocity',
+    },
+    {
+        'graph': no2Graph.draw(),
+        'field_name': 'no2_level_in_ppm',
+    },
+    {
+        'graph': coGraph.draw(),
+        'field_name': 'co_level_in_ppm',
+    },
+    {
+        'graph': h2Graph.draw(),
+        'field_name': 'h2_level_in_ppm',
+    }
+];
