@@ -15,26 +15,48 @@
     </div>
 
     <table class="charts-css column multiple data-spacing-15 datasets-spacing-4">
-        <tr>
-            <td style="--color: transparent;">
-                <div class="container">
-                    <canvas id="battery-voltage-graph"></canvas>
-                </div>
-            </td>
-            <td style="--color: transparent;">
-                <div class="container">
-                    <canvas id="altitude-graph"></canvas>
-                </div>
-            </td>
-            <td style="--color: transparent;">
-                <div class="container">
-                    <canvas id="velocity-graph"></canvas>
-                </div>
-            </td>
-        </tr>
+        <tbody>
+            <tr class="space-under">
+                <td style="--color: transparent;">
+                    <div class="container">
+                        <canvas id="battery-voltage-graph"></canvas>
+                    </div>
+                </td>
+                <td style="--color: transparent;">
+                    <div class="container">
+                        <canvas id="altitude-graph"></canvas>
+                    </div>
+                </td>
+                <td style="--color: transparent;">
+                    <div class="container">
+                        <canvas id="velocity-graph"></canvas>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr class="space-under">
+                <td style="--color: transparent;">
+                    <div class="container">
+                        <canvas id="no2-graph"></canvas>
+                    </div>
+                </td>
+                <td style="--color: transparent;">
+                    <div class="container">
+                        <canvas id="co-graph"></canvas>
+                    </div>
+                </td>
+                <td style="--color: transparent;">
+                    <div class="container">
+                        <canvas id="h2-graph"></canvas>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
     </table>
 {% endblock %}
 
 {% block js %}
+    <script src="{% static 'client/js/graph_class.js' %}"></script>
     <script src="{% static 'client/js/custom_graph.js' %}"></script>
 {% endblock %}

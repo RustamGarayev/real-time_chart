@@ -1,0 +1,5 @@
+/* Apply padding to td elements that are direct children of the tr elements with class spaceUnder. */
+
+tr.space-under>td {
+  padding-bottom: 2em;
+}
