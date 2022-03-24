@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from api.serializers import SensorReadingListSerializer
+from core.models import SensorReading
 
-# Create your views here.
+
+class SensorReadingViewSet(viewsets.ModelViewSet):
+    queryset = SensorReading.objects.all()
+    serializer_class = SensorReadingListSerializer
