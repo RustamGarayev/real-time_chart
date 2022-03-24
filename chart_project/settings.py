@@ -45,9 +45,11 @@ INSTALLED_APPS = [
 
     # apps
     'core.apps.CoreConfig',
+    'api.apps.ApiConfig',
 
     # Third-party apps
     'channels',
+    'rest_framework',
     'widget_tweaks',
 ]
 
@@ -91,6 +93,14 @@ CHANNEL_LAYERS = {
             "hosts": [('127.0.0.1', 6379)],
         },
     },
+}
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }
 
 # Database
