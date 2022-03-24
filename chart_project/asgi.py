@@ -14,7 +14,7 @@ from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
 import graph_socket.routing
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cansat_teknofest_2022.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chart_project.settings')
 
 application = ProtocolTypeRouter({
   "http": get_asgi_application(),

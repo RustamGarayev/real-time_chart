@@ -11,5 +11,4 @@ django-widget-tweaks==1.4.12
 python-dotenv==0.19.2
 django-4-jet==1.0.8
 channels==3.0.4
-asgi_redis==1.4.3
 channels-redis==3.3.1

@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cansat_teknofest_2022.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chart_project.settings')
 
 application = get_wsgi_application()
