@@ -8,15 +8,9 @@
 {% endblock %}
 
 {% block content %}
-    <div style="display: flex">
-        <div id="team-id"></div>
-        <div id="working_duration"></div>
-        <div id="telemetry-packs"></div>
-    </div>
-
     <table class="charts-css column multiple data-spacing-15 datasets-spacing-4">
         <tbody>
-            <tr class="space-under">
+            <tr>
                 <td style="--color: transparent;">
                     <div class="container">
                         <canvas id="battery-voltage-graph"></canvas>
@@ -34,8 +28,64 @@
                 </td>
             </tr>
         </tbody>
+    </table>
+    <section class="control-section" style="border: 1px solid;">
+        <div class="control-container">
+            <div class="control-group">
+                <button class="control-buttons" id="start-button">{% trans 'Start' %}</button>
+                <button class="control-buttons" id="reset-button">{% trans 'Reset' %}</button>
+            </div>
+            <div class="control-group">
+                <div style="display: flex;">
+                    <label for="select-port" class="control-selector-label">{% trans 'Port' %}:</label>
+                    <select id="select-port" class="control-selectors">
+                        <option>Port 1</option>
+                        <option>Port 2</option>
+                    </select>
+                </div>
+                <div style="display: flex;">
+                    <label for="select-baud-rate" class="control-selector-label">{% trans 'Port' %}:</label>
+                    <select id="select-baud-rate" class="control-selectors">
+                        <option>100000</option>
+                        <option>200000</option>
+                        <option>300000</option>
+                    </select>
+                </div>
+                <button type="button" id="save-stop-button">{% trans 'Save & Stop' %}</button>
+            </div>
+        </div>
+    </section>
+    <section class="basic-info-section">
+        <div class="basic-info-container">
+            <div class="basic-info-group">
+                <label for="team-id">{% trans 'Software State' %}</label>
+                <input type="text" id="team-id" value="{{ software_status }}" readonly>
+            </div>
+            <div class="basic-info-group">
+                <label for="working-duration">{% trans 'GPS Time' %}</label>
+                <input type="text" id="working-duration" value="{{ working_duration }}" readonly>
+            </div>
+            <div class="basic-info-group">
+                <label for="team-id">{% trans 'Team ID' %}</label>
+                <input type="text" id="team-id" value="{{ team_id }}" readonly>
+            </div>
+            <div class="basic-info-group">
+                <label for="working-duration">{% trans 'Mission time' %}</label>
+                <input type="text" id="working-duration" value="{{ working_duration }}" readonly>
+            </div>
+            <div class="basic-info-group">
+                <label for="telemetry-packs">{% trans 'Packet Count' %}</label>
+                <input type="text" id="telemetry-packs" value="{{ telemetry_packs }}" readonly>
+            </div>
+            <div class="basic-info-group">
+                <label for="telemetry-packs">{% trans 'Bonus Direction' %}</label>
+                <input type="text" id="telemetry-packs" value="{{ bonus_direction }}" readonly>
+            </div>
+        </div>
+    </section>
+    <table class="charts-css column multiple data-spacing-15 datasets-spacing-4">
         <tbody>
-            <tr class="space-under">
+            <tr>
                 <td style="--color: transparent;">
                     <div class="container">
                         <canvas id="no2-graph"></canvas>

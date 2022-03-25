@@ -1,5 +1,6 @@
 // Websocket connection
 let socket = new WebSocket("ws://" +  window.location.host + "/ws/graph/");
+console.log("ws://" +  window.location.host + "/ws/graph/")
 
 // socket.onopen = function(e) {
 //     fetch_sensor_readings();
@@ -23,5 +24,6 @@ socket.onmessage = function (e) {
 };
 
 socket.onclose = function(e) {
+    console.log(e.data);
     console.error('Chat socket closed unexpectedly');
 };

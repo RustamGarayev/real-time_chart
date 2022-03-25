@@ -1,3 +1,46 @@
+.body {
+  background-color: #f5f5f5;
+  padding: 18px;
+}
+
+.control-section {
+  margin-top: 50px;
+  height: 160px;
+  width: 386px;
+}
+
+.control-container {
+  display: flex;
+}
+
+.control-buttons {
+  display: block;
+  margin: 10px;
+  height: 60px;
+  width: 150px;
+}
+
+.control-selectors {
+  display: block;
+  margin: 10px;
+  height: 40px;
+  width: 110px;
+}
+
+#start-button {
+  background: #00BC00;
+}
+
+#reset-button {
+  background: #FFA800;
+}
+
+#save-stop-button {
+  width: 196px;
+  height: 40px;
+
+  background: #FD0001;
+}
 /* Apply padding to td elements that are direct children of the tr elements with class spaceUnder. */
 
 tr.space-under>td {
