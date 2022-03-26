@@ -3,14 +3,14 @@
   padding: 18px;
 }
 
+section.basic-info-section-right, .main-container, .control-container {
+  display: flex;
+}
+
 .control-section {
   margin-top: 50px;
   height: 160px;
   width: 386px;
-}
-
-.control-container {
-  display: flex;
 }
 
 .control-buttons {

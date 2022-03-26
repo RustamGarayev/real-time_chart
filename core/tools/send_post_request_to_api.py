@@ -13,6 +13,7 @@ for i in range(15):
         "battery_voltage": randint(4, 6),
         "altitude": randint(2, 60),
         "velocity": randint(20, 30),
+        "temperature": randint(24, 35),
         "no2_level_in_ppm": randint(0, 100),
         "co_level_in_ppm": randint(0, 20),
         "h2_level_in_ppm": randint(0, 10),

@@ -47,7 +47,7 @@ class GraphConsumer(AsyncJsonWebsocketConsumer):
         await self.accept()
         logging.info("Connected")
 
-        for i in range(30):
+        for i in range(1):
             sensor_reading = await self.get_sensor_data()
             logging.info("Inside fetch sensor reading")
             context = {

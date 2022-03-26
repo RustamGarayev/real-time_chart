@@ -1,8 +1,16 @@
 // Define default configuration
 let defaultGraphOptions = {
     scales: {
+        x: {
+            grid: {
+              display: false
+            }
+        },
         y: {
-            beginAtZero: true
+            beginAtZero: false,
+            grid: {
+                display: false
+            },
         }
     }
 }
@@ -46,6 +54,8 @@ velocityData = [];
 no2Data = [];
 coData = [];
 h2Data = [];
+temperatureData = [];
+gpsData = [];
 
 // Define each graph
 let batteryVoltageGraph = new CustomGraph('battery-voltage-graph', 'line', 'Battery Voltage', batteryVoltageData, defaultGraphLabels, defaultGraphOptions);
@@ -54,6 +64,8 @@ let velocityGraph = new CustomGraph('velocity-graph', 'line', 'Velocity', veloci
 let no2Graph = new CustomGraph('no2-graph', 'line', 'NO2', no2Data, defaultGraphLabels, defaultGraphOptions);
 let coGraph = new CustomGraph('co-graph', 'line', 'CO', coData, defaultGraphLabels, defaultGraphOptions);
 let h2Graph = new CustomGraph('h2-graph', 'line', 'H2', h2Data, defaultGraphLabels, defaultGraphOptions);
+let temperatureGraph = new CustomGraph('temperature-graph', 'line', 'Temperature', temperatureData, defaultGraphLabels, defaultGraphOptions);
+let gpsGraph = new CustomGraph('gps-graph', 'line', 'GPS', gpsData, defaultGraphLabels, defaultGraphOptions);
 
 let graphsList = [
     {
@@ -79,5 +91,13 @@ let graphsList = [
     {
         'graph': h2Graph.draw(),
         'field_name': 'h2_level_in_ppm',
+    },
+    {
+        'graph': temperatureGraph.draw(),
+        'field_name': 'temperature',
+    },
+    {
+        'graph': gpsGraph.draw(),
+        'field_name': 'latitude',
     }
 ];
