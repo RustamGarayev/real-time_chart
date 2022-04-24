@@ -56,7 +56,7 @@ class GraphConsumer(AsyncJsonWebsocketConsumer):
             }
 
             await self.send(json.dumps(context))
-            await sleep(1)
+            await sleep(2)
 
     async def receive(self, text_data):
         data = json.loads(text_data)
