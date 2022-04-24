@@ -98,6 +98,6 @@ let graphsList = [
     },
     {
         'graph': gpsGraph.draw(),
-        'field_name': 'latitude',
+        'field_name': 'gps_latitude',
     }
 ];

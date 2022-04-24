@@ -65,18 +65,18 @@
                     <div class="control-container">
                         <div class="control-group">
                             <div class="basic-info-group">
-                                <label for="team-id">{% trans 'Team ID' %}</label>
-                                <input type="text" id="team-id" value="{{ team_id }}" readonly>
+                                <label for="team_id">{% trans 'Team ID' %}</label>
+                                <input type="text" id="team_id" value="{{ team_id }}" readonly>
                             </div>
                             <div class="basic-info-group">
-                                <label for="working-duration">{% trans 'Working Duration' %}</label>
-                                <input type="text" id="working-duration" value="{{ working_duration }}" readonly>
+                                <label for="working_duration">{% trans 'Working Duration' %}</label>
+                                <input type="text" id="working_duration" readonly>
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="basic-info-group">
-                                <label for="num-telemetry-packs">{% trans 'Packet Count' %}</label>
-                                <input type="text" id="num-telemetry-packs" readonly>
+                                <label for="number_of_telemetry_packets">{% trans 'Packet Count' %}</label>
+                                <input type="text" id="number_of_telemetry_packets" readonly>
                             </div>
                             <div class="basic-info-group">
                                 <label for="direction-bonus">{% trans 'Direction (Bonus)' %}</label>
@@ -91,30 +91,30 @@
             <section class="basic-info-section-right">
                 <div class="basic-info-container">
                     <div class="basic-info-group">
-                        <label for="altitude-input">{% trans 'Altitude (m)' %}</label>
-                        <input type="text" id="altitude-input" readonly>
+                        <label for="altitude">{% trans 'Altitude (m)' %}</label>
+                        <input type="text" id="altitude" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="n2-input">{% trans 'N2 (ppm)' %}</label>
-                        <input type="text" id="n2-input" readonly>
+                        <label for="n2_level_in_ppm">{% trans 'N2 (ppm)' %}</label>
+                        <input type="text" id="n2_level_in_ppm" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="co-input">{% trans 'CO (ppm)' %}</label>
-                        <input type="text" id="co-input" readonly>
+                        <label for="co_level_in_ppm">{% trans 'CO (ppm)' %}</label>
+                        <input type="text" id="co_level_in_ppm" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="h2-input">{% trans 'H2 (ppm)' %}</label>
-                        <input type="text" id="h2-input" readonly>
+                        <label for="h2_level_in_ppm">{% trans 'H2 (ppm)' %}</label>
+                        <input type="text" id="h2_level_in_ppm" readonly>
                     </div>
                 </div>
                 <div class="basic-info-container">
                     <div class="basic-info-group">
-                        <label for="velocity-input">{% trans 'Velocity (m/s)' %}</label>
-                        <input type="text" id="velocity-input" readonly>
+                        <label for="velocity">{% trans 'Velocity (m/s)' %}</label>
+                        <input type="text" id="velocity" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="voltage-input">{% trans 'Voltage (V)' %}</label>
-                        <input type="text" id="voltage-input" readonly>
+                        <label for="battery_voltage">{% trans 'Voltage (V)' %}</label>
+                        <input type="text" id="battery_voltage" readonly>
                     </div>
                     <div class="basic-info-group">
                         <label for="separation-time">{% trans 'Separation Time (s)' %}</label>
@@ -123,16 +123,16 @@
                 </div>
                 <div class="basic-info-container">
                     <div class="basic-info-group">
-                        <label for="gps-latitude-input">{% trans 'GPS Lattitude' %}</label>
-                        <input type="text" id="gps-latitude-input" readonly>
+                        <label for="gps_latitude">{% trans 'GPS Lattitude' %}</label>
+                        <input type="text" id="gps_latitude" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="gps-longitude-input">{% trans 'GPS Longtitude' %}</label>
-                        <input type="text" id="gps-longitude-input" readonly>
+                        <label for="gps_longitude">{% trans 'GPS Longtitude' %}</label>
+                        <input type="text" id="gps_longitude" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="gps-altitude-input">{% trans 'GPS Altitude' %}</label>
-                        <input type="text" id="gps-altitude-input" readonly>
+                        <label for="gps_altitude">{% trans 'GPS Altitude' %}</label>
+                        <input type="text" id="gps_altitude" readonly>
                     </div>
                 </div>
             </section>
@@ -155,7 +155,7 @@
 {% endblock %}
 
 {% block js %}
-    <script src="{% static 'client/js/graph_class.js' %}"></script>
-    <script src="{% static 'client/js/helper_functions.js' %}"></script>
-    <script src="{% static 'client/js/custom_graph.js' %}"></script>
+    <script src="{% static 'client/js/graphClass.js' %}"></script>
+    <script src="{% static 'client/js/helperFunctions.js' %}"></script>
+    <script src="{% static 'client/js/customGraph.js' %}"></script>
 {% endblock %}

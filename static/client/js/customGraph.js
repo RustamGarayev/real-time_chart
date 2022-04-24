@@ -16,11 +16,11 @@ console.log("ws://" +  window.location.host + "/ws/graph/")
 socket.onmessage = function (e) {
     let djangoData = JSON.parse(e.data).sensor_reading;
 
-    console.log(Object.keys(djangoData));
-
     // graphList is initialized in graph_class.js file
     // updateGraphDataset is initialized in helper_functions.js file
     graphsList.forEach(element => updateGraphDataset(element.graph, djangoData[element.field_name], 0));
+
+    updateSensorReadings(djangoData);
 };
 
 socket.onclose = function(e) {
