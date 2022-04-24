@@ -51,7 +51,7 @@ class CustomGraph {
 batteryVoltageData = [];
 altitudeData = [];
 velocityData = [];
-no2Data = [];
+n2Data = [];
 coData = [];
 h2Data = [];
 temperatureData = [];
@@ -61,7 +61,7 @@ gpsData = [];
 let batteryVoltageGraph = new CustomGraph('battery-voltage-graph', 'line', 'Battery Voltage', batteryVoltageData, defaultGraphLabels, defaultGraphOptions);
 let altitudeGraph = new CustomGraph('altitude-graph', 'line', 'Altitude', altitudeData, defaultGraphLabels, defaultGraphOptions);
 let velocityGraph = new CustomGraph('velocity-graph', 'line', 'Velocity', velocityData, defaultGraphLabels, defaultGraphOptions);
-let no2Graph = new CustomGraph('no2-graph', 'line', 'NO2', no2Data, defaultGraphLabels, defaultGraphOptions);
+let n2Graph = new CustomGraph('n2-graph', 'line', 'NO2', n2Data, defaultGraphLabels, defaultGraphOptions);
 let coGraph = new CustomGraph('co-graph', 'line', 'CO', coData, defaultGraphLabels, defaultGraphOptions);
 let h2Graph = new CustomGraph('h2-graph', 'line', 'H2', h2Data, defaultGraphLabels, defaultGraphOptions);
 let temperatureGraph = new CustomGraph('temperature-graph', 'line', 'Temperature', temperatureData, defaultGraphLabels, defaultGraphOptions);
@@ -81,8 +81,8 @@ let graphsList = [
         'field_name': 'velocity',
     },
     {
-        'graph': no2Graph.draw(),
-        'field_name': 'no2_level_in_ppm',
+        'graph': n2Graph.draw(),
+        'field_name': 'n2_level_in_ppm',
     },
     {
         'graph': coGraph.draw(),

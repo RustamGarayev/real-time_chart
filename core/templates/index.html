@@ -8,46 +8,41 @@
 {% endblock %}
 
 {% block content %}
-    <table class="charts-css column multiple data-spacing-15 datasets-spacing-4">
-        <tbody>
-            <tr>
-                <td style="--color: transparent;">
-                    <div class="container">
-                        <canvas id="battery-voltage-graph"></canvas>
-                    </div>
-                </td>
-                <td style="--color: transparent;">
-                    <div class="container">
-                        <canvas id="altitude-graph"></canvas>
-                    </div>
-                </td>
-                <td style="--color: transparent;">
-                    <div class="container">
-                        <canvas id="velocity-graph"></canvas>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="chart-row-m0">
+        <div class="container">
+            <canvas id="battery-voltage-graph" width="277" height="186"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="altitude-graph" width="277" height="186"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="velocity-graph" width="277" height="186"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="temperature-graph" width="277" height="186"></canvas>
+        </div>
+    </div>
     <div class="main-container">
         <div class="main-left">
-            <section class="control-section" style="border: 1px solid;">
+            <section class="control-section">
                 <div class="control-container">
                     <div class="control-group">
                         <button class="control-buttons" id="start-button">{% trans 'Start' %}</button>
                         <button class="control-buttons" id="reset-button">{% trans 'Reset' %}</button>
                     </div>
                     <div class="control-group">
-                        <div style="display: flex;">
+                        <div class="selector-group">
                             <label for="select-port" class="control-selector-label">{% trans 'Port' %}:</label>
                             <select id="select-port" class="control-selectors">
+                                <option>Select Port</option>
                                 <option>Port 1</option>
                                 <option>Port 2</option>
                             </select>
                         </div>
-                        <div style="display: flex;">
-                            <label for="select-baud-rate" class="control-selector-label">{% trans 'Port' %}:</label>
+                        <div class="selector-group">
+                            <label for="select-baud-rate" class="x">{% trans 'Baud Rate' %}:</label>
                             <select id="select-baud-rate" class="control-selectors">
+                                <option>Select</option>
                                 <option>100000</option>
                                 <option>200000</option>
                                 <option>300000</option>
@@ -61,27 +56,33 @@
                 <div class="basic-info-container">
                     <div class="basic-info-group">
                         <label for="team-id">{% trans 'Software State' %}</label>
-                        <input type="text" id="team-id" value="{{ software_status }}" readonly>
+                        <input class="gl-input" type="text" id="team-id" value="{{ software_status }}" readonly>
                     </div>
                     <div class="basic-info-group">
                         <label for="working-duration">{% trans 'GPS Time' %}</label>
-                        <input type="text" id="working-duration" value="{{ working_duration }}" readonly>
+                        <input class="gl-input" type="text" id="working-duration" value="{{ working_duration }}" readonly>
                     </div>
-                    <div class="basic-info-group">
-                        <label for="team-id">{% trans 'Team ID' %}</label>
-                        <input type="text" id="team-id" value="{{ team_id }}" readonly>
-                    </div>
-                    <div class="basic-info-group">
-                        <label for="working-duration">{% trans 'Mission time' %}</label>
-                        <input type="text" id="working-duration" value="{{ working_duration }}" readonly>
-                    </div>
-                    <div class="basic-info-group">
-                        <label for="telemetry-packs">{% trans 'Packet Count' %}</label>
-                        <input type="text" id="telemetry-packs" value="{{ telemetry_packs }}" readonly>
-                    </div>
-                    <div class="basic-info-group">
-                        <label for="telemetry-packs">{% trans 'Bonus Direction' %}</label>
-                        <input type="text" id="telemetry-packs" value="{{ bonus_direction }}" readonly>
+                    <div class="control-container">
+                        <div class="control-group">
+                            <div class="basic-info-group">
+                                <label for="team-id">{% trans 'Team ID' %}</label>
+                                <input type="text" id="team-id" value="{{ team_id }}" readonly>
+                            </div>
+                            <div class="basic-info-group">
+                                <label for="working-duration">{% trans 'Mission time' %}</label>
+                                <input type="text" id="working-duration" value="{{ working_duration }}" readonly>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="basic-info-group">
+                                <label for="telemetry-packs">{% trans 'Packet Count' %}</label>
+                                <input type="text" id="telemetry-packs" value="{{ telemetry_packs }}" readonly>
+                            </div>
+                            <div class="basic-info-group">
+                                <label for="telemetry-packs">{% trans 'Bonus Direction' %}</label>
+                                <input type="text" id="telemetry-packs" value="{{ bonus_direction }}" readonly>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -90,82 +91,67 @@
             <section class="basic-info-section-right">
                 <div class="basic-info-container">
                     <div class="basic-info-group">
-                        <label for="team-id">{% trans 'Software State' %}</label>
+                        <label for="team-id">{% trans 'Altitude (m)' %}</label>
                         <input type="text" id="team-id" value="{{ software_status }}" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="working-duration">{% trans 'GPS Time' %}</label>
+                        <label for="working-duration">{% trans 'N2 (ppm)' %}</label>
                         <input type="text" id="working-duration" value="{{ working_duration }}" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="team-id">{% trans 'Team ID' %}</label>
+                        <label for="team-id">{% trans 'CO (ppm)' %}</label>
                         <input type="text" id="team-id" value="{{ team_id }}" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="working-duration">{% trans 'Mission time' %}</label>
+                        <label for="working-duration">{% trans 'H2 (ppm)' %}</label>
                         <input type="text" id="working-duration" value="{{ working_duration }}" readonly>
                     </div>
                 </div>
                 <div class="basic-info-container">
                     <div class="basic-info-group">
-                        <label for="team-id">{% trans 'Software State' %}</label>
+                        <label for="team-id">{% trans 'Speed (m/s)' %}</label>
                         <input type="text" id="team-id" value="{{ software_status }}" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="working-duration">{% trans 'GPS Time' %}</label>
+                        <label for="working-duration">{% trans 'Voltage (V)' %}</label>
                         <input type="text" id="working-duration" value="{{ working_duration }}" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="team-id">{% trans 'Team ID' %}</label>
+                        <label for="team-id">{% trans 'Separation Time (s)' %}</label>
                         <input type="text" id="team-id" value="{{ team_id }}" readonly>
                     </div>
                 </div>
                 <div class="basic-info-container">
                     <div class="basic-info-group">
-                        <label for="team-id">{% trans 'Software State' %}</label>
+                        <label for="team-id">{% trans 'GPS Lattitude' %}</label>
                         <input type="text" id="team-id" value="{{ software_status }}" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="working-duration">{% trans 'GPS Time' %}</label>
+                        <label for="working-duration">{% trans 'GPS Longtitude' %}</label>
                         <input type="text" id="working-duration" value="{{ working_duration }}" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="team-id">{% trans 'Team ID' %}</label>
+                        <label for="team-id">{% trans 'GPS Altitude' %}</label>
                         <input type="text" id="team-id" value="{{ team_id }}" readonly>
                     </div>
                 </div>
             </section>
         </div>
-        <div class="charts-css column multiple data-spacing-15 datasets-spacing-4">
-            <div class="container">
-                <canvas id="temperature-graph" width="508" height="262"></canvas>
-            </div>
-            <div class="container">
-                <canvas id="gps-graph" width="508" height="262"></canvas>
-            </div>
+    </div>
+    <div class="chart-row-m0">
+        <div class="container">
+            <canvas id="n2-graph" width="277" height="186"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="co-graph" width="277" height="186"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="h2-graph" width="277" height="186"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="gps-graph" width="277" height="186"></canvas>
         </div>
     </div>
-    <table class="charts-css column multiple data-spacing-15 datasets-spacing-4">
-        <tbody>
-            <tr>
-                <td style="--color: transparent;">
-                    <div class="container">
-                        <canvas id="no2-graph"></canvas>
-                    </div>
-                </td>
-                <td style="--color: transparent;">
-                    <div class="container">
-                        <canvas id="co-graph"></canvas>
-                    </div>
-                </td>
-                <td style="--color: transparent;">
-                    <div class="container">
-                        <canvas id="h2-graph"></canvas>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 {% endblock %}
 
 {% block js %}

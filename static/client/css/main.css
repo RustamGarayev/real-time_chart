@@ -1,16 +1,68 @@
+@font-face {
+    font-family: Metropolis;
+    src: url('../../assets/fonts/Metropolis/Metropolis-Medium.otf');
+}
+
+* {
+  background: rgba(222, 218, 218, 1);
+  margin: 0;
+  padding: 0;
+  font-family: Metropolis;
+  font-style: normal;
+  font-weight: normal;
+}
+
 .body {
   background-color: #f5f5f5;
   padding: 18px;
 }
 
-section.basic-info-section-right, .main-container, .control-container {
+input {
+  border: 1px solid #ffffff;
+  border-radius: 0;
+  background-color: #ffffff;
+  margin: 5px;
+  height: 40px;
+  width: 100px;
+}
+
+label {
+  height: 10px;
+  width: auto;
+  color: #585858;
+}
+
+section.basic-info-section-right, .chart-row-m0, .control-container {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.basic-info-section {
+  margin-top: 10px;
+}
+
+.basic-info-container {
+  text-align: center;
+}
+
+.main-container, .selector-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.gl-input {
+  width: 150px;
 }
 
 .control-section {
-  margin-top: 50px;
-  height: 160px;
+  margin-top: 20px;
   width: 386px;
+  border: 1px solid;
+  color: #C7AE98;
+  padding: 10px;
 }
 
 .control-buttons {
@@ -20,29 +72,41 @@ section.basic-info-section-right, .main-container, .control-container {
   width: 150px;
 }
 
+.selector-group {
+  height: 40px;
+  width: auto;
+}
+
 .control-selectors {
   display: block;
-  margin: 10px;
-  height: 40px;
+  margin-bottom: 6px;
   width: 110px;
+  background-color: #ffffff;
+  border: none;
 }
 
 #start-button {
+  color: #ffffff;
   background: #00BC00;
+  border: none;
 }
 
 #reset-button {
+  color: #ffffff;
   background: #FFA800;
+  border: none;
 }
 
 #save-stop-button {
   width: 196px;
   height: 40px;
 
+  color: #ffffff;
   background: #FD0001;
+  border: none;
 }
-/* Apply padding to td elements that are direct children of the tr elements with class spaceUnder. */
 
+/* Apply padding to td elements that are direct children of the tr elements with class spaceUnder. */
 tr.space-under>td {
   padding-bottom: 2em;
 }

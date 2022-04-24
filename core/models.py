@@ -20,7 +20,7 @@ class SensorReading(models.Model):
     velocity = models.FloatField(default=0.0, blank=True)
     temperature = models.FloatField(default=0.0, blank=True)
 
-    no2_level_in_ppm = models.FloatField(default=0.0, blank=True)
+    n2_level_in_ppm = models.FloatField(default=0.0, blank=True)
     co_level_in_ppm = models.FloatField(default=0.0, blank=True)
     h2_level_in_ppm = models.FloatField(default=0.0, blank=True)
 
