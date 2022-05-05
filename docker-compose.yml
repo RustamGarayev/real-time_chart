@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3"
 
 services:
   db:
@@ -6,7 +6,7 @@ services:
     volumes:
       - ./pgdb/db:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - "5432:5432"
     env_file: ./.env
 
   redis:
@@ -14,7 +14,7 @@ services:
     restart: "on-failure"
     container_name: redis
     ports:
-      - 6379:6379
+      - "6379:6379"
     volumes:
       - ../redisdb:/var/lib/redis
 

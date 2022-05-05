@@ -80,8 +80,8 @@ label:not(.selector-label) {
 
 .control-buttons {
   display: block;
-  margin: 10px;
-  height: 40px;
+  margin: 6px;
+  height: 50px;
   width: 130px;
 }
 
@@ -108,14 +108,14 @@ label:not(.selector-label) {
 }
 
 #start-button {
-  top: 0;
+  bottom: 0;
   color: #ffffff;
   background: #00BC00;
   border: none;
 }
 
 #reset-button {
-  bottom: 0;
+  top: 0;
   color: #ffffff;
   background: #FFA800;
   border: none;
