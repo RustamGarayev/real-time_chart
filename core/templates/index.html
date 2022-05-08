@@ -48,7 +48,10 @@
                                 <option>300000</option>
                             </select>
                         </div>
-                        <button type="button" id="save-stop-button">{% trans 'Save & Stop' %}</button>
+                        <form action="{% url 'core:export_sensor_data_csv' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" id="save-stop-button">{% trans 'Save & Stop' %}</button>
+                        </form>
                     </div>
                 </div>
             </section>
@@ -78,10 +81,6 @@
                                 <label for="number_of_telemetry_packets">{% trans 'Packet Count' %}</label>
                                 <input type="text" id="number_of_telemetry_packets" readonly>
                             </div>
-                            <div class="basic-info-group">
-                                <label for="direction-bonus">{% trans 'Direction (Bonus)' %}</label>
-                                <input type="text" id="direction-bonus" readonly>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,8 +94,8 @@
                         <input type="text" id="altitude" readonly>
                     </div>
                     <div class="basic-info-group">
-                        <label for="n2_level_in_ppm">{% trans 'N2 (ppm)' %}</label>
-                        <input type="text" id="n2_level_in_ppm" readonly>
+                        <label for="no2_level_in_ppm">{% trans 'N2 (ppm)' %}</label>
+                        <input type="text" id="no2_level_in_ppm" readonly>
                     </div>
                     <div class="basic-info-group">
                         <label for="co_level_in_ppm">{% trans 'CO (ppm)' %}</label>
@@ -140,7 +139,7 @@
     </div>
     <div class="chart-row-m0">
         <div class="container">
-            <canvas id="n2-graph" width="277" height="186"></canvas>
+            <canvas id="no2-graph" width="277" height="186"></canvas>
         </div>
         <div class="container">
             <canvas id="co-graph" width="277" height="186"></canvas>

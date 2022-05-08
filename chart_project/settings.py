@@ -107,14 +107,20 @@ REST_FRAMEWORK = {
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": os.environ.get("POSTGRES_DB"),
+#         "USER": os.environ.get("POSTGRES_USER"),
+#         "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+#         "HOST": "localhost",
+#         "PORT": os.environ.get("POSTGRES_PORT"),
+#     }
+# }
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.environ.get("POSTGRES_DB"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
-        "HOST": "localhost",
-        "PORT": os.environ.get("POSTGRES_PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        "NAME": "chart_proj_sqlite",
     }
 }
 
@@ -151,6 +157,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+TEAM_ID = 2022
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

@@ -31,7 +31,8 @@ class GraphConsumer(AsyncJsonWebsocketConsumer):
         return SensorReading.objects.first()
 
     def __sensor_readings_to_json(self, sensor_readings):
-        return [self.__sensor_reading_to_json(sensor_reading) for sensor_reading in sensor_readings]
+        return [self.__sensor_reading_to_json(sensor_reading) for sensor_reading in sensor_readings
+                if sensor_reading is not None]
 
     async def fetch_sensor_readings(self):
         sensor_reading = SensorReading.objects.last()
@@ -57,6 +58,9 @@ class GraphConsumer(AsyncJsonWebsocketConsumer):
 
             await self.send(json.dumps(context))
             await sleep(1)
+
+            # if sensor_reading.altitude <= 1:
+            #     break
 
     async def receive(self, text_data):
         data = json.loads(text_data)

@@ -15,7 +15,7 @@ for i in range(60):
         "altitude": 60 - i,
         "velocity": randint(25, 30),
         "temperature": randint(24, 35),
-        "n2_level_in_ppm": randint(90, 100),
+        "no2_level_in_ppm": randint(90, 100),
         "co_level_in_ppm": randint(15, 20),
         "h2_level_in_ppm": randint(6, 10),
         "gps_latitude": 12.0,

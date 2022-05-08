@@ -12,3 +12,4 @@ db.sqlite3
 **/.DS_Store
 config.env
 .env
+chart_proj_sqlite
