@@ -5,13 +5,14 @@ class Setting(models.Model):
     team_id = models.PositiveIntegerField()
 
     website_title = models.CharField(max_length=50, default="Cansat - Teknofest", blank=True)
+    enable_sensor_reading = models.BooleanField(default=False)
 
     def __str__(self):
         return self.website_title
 
 
 class SensorReading(models.Model):
-    setting = models.ForeignKey('Setting', on_delete=models.PROTECT, related_name='sensor_readings')
+    setting = models.ForeignKey('Setting', on_delete=models.PROTECT, default=1, related_name='sensor_readings')
 
     working_duration = models.PositiveIntegerField(default=0, blank=True)
     number_of_telemetry_packets = models.PositiveIntegerField(default=0, blank=True)

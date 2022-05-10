@@ -5,7 +5,9 @@ from asyncio import sleep
 from asgiref.sync import sync_to_async
 
 from channels.generic.websocket import AsyncJsonWebsocketConsumer
-from core.models import SensorReading
+from core.models import SensorReading, Setting
+
+site_setting = Setting.objects.first()
 
 logging.basicConfig(level=logging.INFO)
 
@@ -48,19 +50,20 @@ class GraphConsumer(AsyncJsonWebsocketConsumer):
         await self.accept()
         logging.info("Connected")
 
-        for i in range(60):
-            sensor_reading = await self.get_sensor_data()
-            logging.info("Inside fetch sensor reading")
-            context = {
-                'sensor_reading': await self.__sensor_reading_to_json(sensor_reading),
-                'command': 'fetch_sensor_readings',
-            }
+        if site_setting.enable_sensor_reading:
+            while True:
+                sensor_reading = await self.get_sensor_data()
+                logging.info("Inside fetch sensor reading")
+                context = {
+                    'sensor_reading': await self.__sensor_reading_to_json(sensor_reading),
+                    'command': 'fetch_sensor_readings',
+                }
 
-            await self.send(json.dumps(context))
-            await sleep(1)
+                await self.send(json.dumps(context))
+                await sleep(1)
 
-            # if sensor_reading.altitude <= 1:
-            #     break
+                if sensor_reading.altitude < 1:
+                    break
 
     async def receive(self, text_data):
         data = json.loads(text_data)

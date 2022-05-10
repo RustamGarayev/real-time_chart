@@ -5,6 +5,7 @@ from django.views import generic
 from django.http import HttpResponse
 
 from core.models import Setting, SensorReading
+from core.tasks import start_reading_data
 from chart_project.settings import TEAM_ID
 
 logging.basicConfig(level=logging.INFO)
@@ -45,3 +46,14 @@ def export_sensor_data_csv(request):
         writer.writerow(sensor_reading)
 
     return response
+
+
+def start_sensor_reading(request):
+    if request.method == 'POST':
+        start_reading_data()
+
+        site_setting = Setting.objects.first()
+        site_setting.enable_sensor_reading = True
+        site_setting.save()
+
+        return HttpResponse('OK')
