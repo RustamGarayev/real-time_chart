@@ -50,20 +50,17 @@ class GraphConsumer(AsyncJsonWebsocketConsumer):
         await self.accept()
         logging.info("Connected")
 
-        if site_setting.enable_sensor_reading:
-            while True:
-                sensor_reading = await self.get_sensor_data()
-                logging.info("Inside fetch sensor reading")
-                context = {
-                    'sensor_reading': await self.__sensor_reading_to_json(sensor_reading),
-                    'command': 'fetch_sensor_readings',
-                }
+        # if site_setting.enable_sensor_reading:
+        while True:
+            sensor_reading = await self.get_sensor_data()
+            logging.info("Inside fetch sensor reading")
+            context = {
+                'sensor_reading': await self.__sensor_reading_to_json(sensor_reading),
+                'command': 'fetch_sensor_readings',
+            }
 
-                await self.send(json.dumps(context))
-                await sleep(1)
-
-                if sensor_reading.altitude < 1:
-                    break
+            await self.send(json.dumps(context))
+            await sleep(1)
 
     async def receive(self, text_data):
         data = json.loads(text_data)
@@ -74,5 +71,5 @@ class GraphConsumer(AsyncJsonWebsocketConsumer):
     async def disconnect(self, close_code):
         pass
 
-    # async def send_data(self, sensor_data):
-    #     await self.send(text_data=json.dumps(sensor_data))
+    async def send_data(self, sensor_data):
+        await self.send(text_data=json.dumps(sensor_data))

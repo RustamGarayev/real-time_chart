@@ -58,14 +58,14 @@ temperatureData = [];
 gpsData = [];
 
 // Define each graph
-let batteryVoltageGraph = new CustomGraph('battery-voltage-graph', 'line', 'Battery Voltage', batteryVoltageData, defaultGraphLabels, defaultGraphOptions);
-let altitudeGraph = new CustomGraph('altitude-graph', 'line', 'Altitude', altitudeData, defaultGraphLabels, defaultGraphOptions);
-let velocityGraph = new CustomGraph('velocity-graph', 'line', 'Velocity', velocityData, defaultGraphLabels, defaultGraphOptions);
-let no2Graph = new CustomGraph('no2-graph', 'line', 'NO2', no2Data, defaultGraphLabels, defaultGraphOptions);
-let coGraph = new CustomGraph('co-graph', 'line', 'CO', coData, defaultGraphLabels, defaultGraphOptions);
-let h2Graph = new CustomGraph('h2-graph', 'line', 'H2', h2Data, defaultGraphLabels, defaultGraphOptions);
-let temperatureGraph = new CustomGraph('temperature-graph', 'line', 'Temperature', temperatureData, defaultGraphLabels, defaultGraphOptions);
-let gpsGraph = new CustomGraph('gps-graph', 'line', 'GPS', gpsData, defaultGraphLabels, defaultGraphOptions);
+let batteryVoltageGraph = new CustomGraph('battery-voltage-graph', 'line', 'Battery Voltage (V)', batteryVoltageData, defaultGraphLabels, defaultGraphOptions);
+let altitudeGraph = new CustomGraph('altitude-graph', 'line', 'Current (A)', altitudeData, defaultGraphLabels, defaultGraphOptions);
+let velocityGraph = new CustomGraph('velocity-graph', 'line', 'Pressure (mBar)', velocityData, defaultGraphLabels, defaultGraphOptions);
+let no2Graph = new CustomGraph('no2-graph', 'line', 'Humidity (%)', no2Data, defaultGraphLabels, defaultGraphOptions);
+let coGraph = new CustomGraph('co-graph', 'line', 'Loudness (db)', coData, defaultGraphLabels, defaultGraphOptions);
+let h2Graph = new CustomGraph('h2-graph', 'line', 'Distance to obstacle (m)', h2Data, defaultGraphLabels, defaultGraphOptions);
+let temperatureGraph = new CustomGraph('temperature-graph', 'line', 'Temperature (C)', temperatureData, defaultGraphLabels, defaultGraphOptions);
+let gpsGraph = new CustomGraph('gps-graph', 'line', 'Distance to ground (cm)', gpsData, defaultGraphLabels, defaultGraphOptions);
 
 let graphsList = [
     {
@@ -98,6 +98,6 @@ let graphsList = [
     },
     {
         'graph': gpsGraph.draw(),
-        'field_name': 'gps_latitude',
+        'field_name': 'distance_to_ground',
     }
 ];

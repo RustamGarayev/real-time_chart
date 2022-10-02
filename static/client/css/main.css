@@ -43,11 +43,16 @@ label:not(.selector-label) {
   text-align: right;
 }
 
-.basic-info-section-right, .chart-row-m0, .control-container, .main-container, .selector-group {
+.basic-info-section-right, .chart-row-m0, .control-container,
+.main-container, .selector-group, .control-group {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.control-container {
+  align-items: start;
 }
 
 .basic-info-section {
@@ -59,7 +64,9 @@ label:not(.selector-label) {
 }
 
 .main-container {
+  margin-top: 30px;
   justify-content: space-around;
+  margin-bottom: 30px;
 }
 
 .basic-info-section-right {
@@ -80,7 +87,7 @@ label:not(.selector-label) {
 
 .control-buttons {
   display: block;
-  margin: 6px;
+  /*margin: 6px;*/
   height: 50px;
   width: 130px;
 }
@@ -99,31 +106,31 @@ label:not(.selector-label) {
   border: none;
 }
 
-.control-container:first-child div {
-   position:relative;
-}
+/*.control-container:first-child div {*/
+/*   position:relative;*/
+/*}*/
 
-#start-button, #reset-button {
-  position: absolute;
-}
+/*#start-button, #reset-button {*/
+/*  position: absolute;*/
+/*}*/
 
 #start-button {
-  bottom: 0;
+  margin-bottom: 5px;
   color: #ffffff;
   background: #00BC00;
   border: none;
 }
 
 #reset-button {
-  top: 0;
+  /*top: 0;*/
   color: #ffffff;
-  background: #FFA800;
+  background: #FFA500;
   border: none;
 }
 
 #save-stop-button {
   width: 196px;
-  height: 40px;
+  height: 50px;
 
   color: #ffffff;
   background: #FD0001;

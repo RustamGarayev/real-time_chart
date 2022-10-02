@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content %}
+    <h1 style="color: #585858; text-align: center; margin: 10px 0 10px 0;">{% trans 'Monitoring' %}</h1>
     <div class="chart-row-m0">
         <div class="container">
             <canvas id="battery-voltage-graph" width="277" height="186"></canvas>
@@ -25,63 +26,17 @@
     <div class="main-container">
         <div class="main-left">
             <section class="control-section">
+                <h2 style="text-align: center; color: #585858;">{% trans 'Control Panel' %}</h2>
+                <button class="control-buttons" id="start-button">{% trans 'Start' %}</button>
                 <div class="control-container">
                     <div class="control-group">
-                        <button class="control-buttons" id="start-button">{% trans 'Start' %}</button>
                         <button class="control-buttons" id="reset-button">{% trans 'Reset' %}</button>
                     </div>
                     <div class="control-group">
-                        <div class="selector-group">
-                            <label for="select-port" class="selector-label">{% trans 'Port' %}:</label>
-                            <select id="select-port" class="control-selectors">
-                                <option>Select Port</option>
-                                <option>Port 1</option>
-                                <option>Port 2</option>
-                            </select>
-                        </div>
-                        <div class="selector-group">
-                            <label for="select-baud-rate" class="selector-label">{% trans 'Baud Rate' %}:</label>
-                            <select id="select-baud-rate" class="control-selectors">
-                                <option>Select</option>
-                                <option>100000</option>
-                                <option>200000</option>
-                                <option>300000</option>
-                            </select>
-                        </div>
                         <form action="{% url 'core:export_sensor_data_csv' %}" method="post">
                             {% csrf_token %}
                             <button type="submit" id="save-stop-button">{% trans 'Save & Stop' %}</button>
                         </form>
-                    </div>
-                </div>
-            </section>
-            <section class="basic-info-section">
-                <div class="basic-info-container">
-                    <div class="basic-info-group">
-                        <label for="team-id">{% trans 'Software State' %}</label>
-                        <input class="gl-input" type="text" id="team-id" readonly>
-                    </div>
-                    <div class="basic-info-group">
-                        <label for="gps-time">{% trans 'GPS Time' %}</label>
-                        <input class="gl-input" type="text" id="gps-time" readonly>
-                    </div>
-                    <div class="control-container">
-                        <div class="control-group">
-                            <div class="basic-info-group">
-                                <label for="team_id">{% trans 'Team ID' %}</label>
-                                <input type="text" id="team_id" value="{{ team_id }}" readonly>
-                            </div>
-                            <div class="basic-info-group">
-                                <label for="working_duration">{% trans 'Working Duration' %}</label>
-                                <input type="text" id="working_duration" readonly>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="basic-info-group">
-                                <label for="number_of_telemetry_packets">{% trans 'Packet Count' %}</label>
-                                <input type="text" id="number_of_telemetry_packets" readonly>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -90,48 +45,58 @@
             <section class="basic-info-section-right">
                 <div class="basic-info-container">
                     <div class="basic-info-group">
-                        <label for="altitude">{% trans 'Altitude (m)' %}</label>
-                        <input type="text" id="altitude" readonly>
+                        <label for="team-id">{% trans 'Software State' %}</label>
+                        <input type="text" id="software-state" readonly value="Off" autocomplete="off">
                     </div>
                     <div class="basic-info-group">
-                        <label for="no2_level_in_ppm">{% trans 'N2 (ppm)' %}</label>
-                        <input type="text" id="no2_level_in_ppm" readonly>
+                        <label for="number_of_telemetry_packets">{% trans 'Packet Count' %}</label>
+                        <input type="text" id="number_of_telemetry_packets" readonly autocomplete="off">
                     </div>
                     <div class="basic-info-group">
-                        <label for="co_level_in_ppm">{% trans 'CO (ppm)' %}</label>
-                        <input type="text" id="co_level_in_ppm" readonly>
-                    </div>
-                    <div class="basic-info-group">
-                        <label for="h2_level_in_ppm">{% trans 'H2 (ppm)' %}</label>
-                        <input type="text" id="h2_level_in_ppm" readonly>
+                        <label for="working_duration">{% trans 'Working Duration' %}</label>
+                        <input type="text" id="working_duration" readonly autocomplete="off">
                     </div>
                 </div>
                 <div class="basic-info-container">
                     <div class="basic-info-group">
-                        <label for="velocity">{% trans 'Velocity (m/s)' %}</label>
-                        <input type="text" id="velocity" readonly>
+                        <label for="no2_level_in_ppm">{% trans 'Humidity (%)' %}</label>
+                        <input type="text" id="no2_level_in_ppm" readonly autocomplete="off">
+                    </div>
+                    <div class="basic-info-group">
+                        <label for="co_level_in_ppm">{% trans 'Laudness (db)' %}</label>
+                        <input type="text" id="co_level_in_ppm" readonly autocomplete="off">
+                    </div>
+                    <div class="basic-info-group">
+                        <label for="h2_level_in_ppm">{% trans 'Distance (m)' %}</label>
+                        <input type="text" id="h2_level_in_ppm" readonly autocomplete="off">
+                    </div>
+                </div>
+                <div class="basic-info-container">
+                    <div class="basic-info-group">
+                        <label for="velocity">{% trans 'Pressure (mBar)' %}</label>
+                        <input type="text" id="velocity" readonly autocomplete="off">
                     </div>
                     <div class="basic-info-group">
                         <label for="battery_voltage">{% trans 'Voltage (V)' %}</label>
-                        <input type="text" id="battery_voltage" readonly>
+                        <input type="text" id="battery_voltage" readonly autocomplete="off">
                     </div>
                     <div class="basic-info-group">
-                        <label for="separation-time">{% trans 'Separation Time (s)' %}</label>
-                        <input type="text" id="separation-time" readonly>
+                        <label for="altitude">{% trans 'Current (A)' %}</label>
+                        <input type="text" id="altitude" readonly autocomplete="off">
                     </div>
                 </div>
                 <div class="basic-info-container">
                     <div class="basic-info-group">
                         <label for="gps_latitude">{% trans 'GPS Lattitude' %}</label>
-                        <input type="text" id="gps_latitude" readonly>
+                        <input type="text" id="gps_latitude" readonly autocomplete="off">
                     </div>
                     <div class="basic-info-group">
                         <label for="gps_longitude">{% trans 'GPS Longtitude' %}</label>
-                        <input type="text" id="gps_longitude" readonly>
+                        <input type="text" id="gps_longitude" readonly autocomplete="off">
                     </div>
                     <div class="basic-info-group">
                         <label for="gps_altitude">{% trans 'GPS Altitude' %}</label>
-                        <input type="text" id="gps_altitude" readonly>
+                        <input type="text" id="gps_altitude" readonly autocomplete="off">
                     </div>
                 </div>
             </section>

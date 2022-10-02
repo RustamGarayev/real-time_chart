@@ -18,6 +18,7 @@ class SensorReading(models.Model):
     number_of_telemetry_packets = models.PositiveIntegerField(default=0, blank=True)
     battery_voltage = models.FloatField(default=0.0, blank=True)
     altitude = models.FloatField(default=0.0, blank=True)
+    distance_to_ground = models.FloatField(default=0.0, blank=True)
     velocity = models.FloatField(default=0.0, blank=True)
     temperature = models.FloatField(default=0.0, blank=True)
 
